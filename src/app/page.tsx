@@ -52,7 +52,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-24 pt-16 lg:grid-cols-2 lg:pt-24">
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-16 pt-10 lg:grid-cols-2 lg:pt-12">
         <div>
           <div className="mb-7 inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs font-medium tracking-wide text-emerald-300">
             POWERED BY YOUCAM AI
@@ -99,8 +99,8 @@ export default function Home() {
         <div className="relative">
           <div className="absolute -inset-5 rounded-[2.5rem] bg-emerald-400/10 blur-3xl" />
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#111c24] p-5 shadow-2xl">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#16252b]">
+          <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[2rem] border border-white/10 bg-[#111c24] p-4 shadow-2xl">
+            <div className="relative aspect-[5/6] overflow-hidden rounded-2xl bg-[#16252b]">
               <Image
                 src="/products/emerald-dress-hd.png"
                 alt="Emerald Evening Dress collection preview"
