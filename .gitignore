@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Windows metadata
+*:Zone.Identifier
+
+# Local backups
+*.bak
+*.pre-cookie-fix
