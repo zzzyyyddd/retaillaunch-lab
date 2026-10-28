@@ -60,21 +60,46 @@ export async function POST(request: NextRequest) {
       .update(sessionToken)
       .digest("hex");
 
-    const { error } = await supabase
-      .from("demand_events")
-      .upsert(
+    const isIntent = ["love", "maybe", "not_interested"].includes(
+      eventType
+    );
+
+    let saveError: string | null = null;
+
+    if (isIntent) {
+      const { data, error } = await supabase.rpc(
+        "save_purchase_intent",
         {
-          product_id: productId,
-          session_token_hash: sessionHash,
-          event_type: eventType,
-        },
-        {
-          onConflict: "product_id,session_token_hash,event_type",
+          p_product_id: productId,
+          p_session_hash: sessionHash,
+          p_event_type: eventType,
         }
       );
 
-    if (error) {
-      console.error("Demand event error:", error.message);
+      if (error || data !== true) {
+        saveError = error?.message ?? "Vote rejected";
+      }
+    } else {
+      const { error } = await supabase
+        .from("demand_events")
+        .upsert(
+          {
+            product_id: productId,
+            session_token_hash: sessionHash,
+            event_type: eventType,
+          },
+          {
+            onConflict: "product_id,session_token_hash,event_type",
+          }
+        );
+
+      if (error) {
+        saveError = error.message;
+      }
+    }
+
+    if (saveError) {
+      console.error("Demand event error:", saveError);
       return NextResponse.json(
         { error: "Unable to save purchase intent" },
         { status: 500 }
