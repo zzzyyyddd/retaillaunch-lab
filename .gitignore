@@ -46,3 +46,6 @@ next-env.d.ts
 # Local backups
 *.bak
 *.pre-cookie-fix
+
+# Safe environment template
+!.env.example
