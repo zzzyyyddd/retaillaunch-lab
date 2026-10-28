@@ -32,6 +32,12 @@ export default function Home() {
 
         <nav className="flex items-center gap-5 text-sm">
           <Link
+            href="/demo/analytics"
+            className="hidden text-emerald-300 transition hover:text-emerald-200 sm:inline"
+          >
+            Live Analytics
+          </Link>
+          <Link
             href="/shop"
             className="text-slate-300 transition hover:text-white"
           >
@@ -77,10 +83,10 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/dashboard"
-              className="rounded-full border border-white/20 px-7 py-4 text-sm font-semibold transition hover:bg-white/10"
+              href="/demo/analytics"
+              className="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-7 py-4 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-400/20"
             >
-              Retailer Dashboard
+              View Live Analytics →
             </Link>
           </div>
 
@@ -167,12 +173,20 @@ export default function Home() {
           and help shape the next product launch.
         </p>
 
-        <Link
-          href="/shop"
-          className="mt-8 inline-flex rounded-full bg-emerald-400 px-8 py-4 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
-        >
-          Explore the Collection →
-        </Link>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Link
+            href="/shop"
+            className="inline-flex rounded-full bg-emerald-400 px-8 py-4 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+          >
+            Explore the Collection →
+          </Link>
+          <Link
+            href="/demo/analytics"
+            className="inline-flex rounded-full border border-white/20 px-8 py-4 text-sm font-semibold transition hover:bg-white/10"
+          >
+            Explore Demand Intelligence →
+          </Link>
+        </div>
       </section>
 
       <footer className="border-t border-white/10 px-6 py-8 text-center text-xs text-slate-500">
